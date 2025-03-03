@@ -1,197 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Bootstrap -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <!-- Bootstrap icons -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
-      rel="stylesheet"
-    />
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    <!-- CSS -->
-    <link rel="stylesheet" href="styles.css">
 
-    <title>Payment Form</title>
-  </head>
-  <body>
-    <div class="col-10 mx-auto mt-4">
-      <div class="card text">
-        <div class="card-header">
-          <h2>Payment form example</h2>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles.css" />
+  <title>Payment Form</title>
+</head>
+
+<body>
+  <div class="card text col-10 mx-auto mt-4">
+    <div class="card-header">
+      <h2>Payment form example</h2>
+    </div>
+    <!-- Comienza el formulario -->
+    <form class="needs-validation" novalidate>
+      <div class="card-body">
+        <div class="alert alert-danger d-none" role="alert">
+          Some fields are missing
         </div>
-
-        <div class="card-body">
-          <div class="alert alert-danger d-none" role="alert">
-            Some fields are missing
+        <!-- Primera fila -->
+        <div class="row mb-2">
+          <div class="col-12 col-md-5 mb-2">
+            <label for="cardNumber" class="form-label">Card #</label>
+            <input type="text" class="form-control" id="cardNumber" placeholder="XXXX-XXXX-XXXX-XXXX" maxlength="19"
+              required />
           </div>
-
-          <form class="needs-validation" novalidate>
-            <!-- Primera fila -->
-            <div class="row mb-2">
-              <div class="col-12 col-md-5 mb-2">
-                <label for="cardNumber" class="form-label">Card #</label>
-                <input type="text" class="form-control" id="cardNumber" placeholder="XXXX-XXXX-XXXX-XXXX" maxlength="19" required />
+          <div class="col-6 col-md-3">
+            <label for="cvc" class="form-label">CVC #</label>
+            <input type="text" class="form-control" id="cvc" placeholder="000" maxlength="3" required />
+          </div>
+          <div class="col-6 col-md-4">
+            <label for="amount" class="form-label">Amount <strong>$</strong></label>
+            <input type="number" class="form-control" id="amount" placeholder="Amount" required />
+          </div>
+        </div>
+        <!-- Segunda fila -->
+        <div class="row mb-2">
+          <div class="col-6">
+            <label for="firstName" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="firstName" required />
+          </div>
+          <div class="col-6">
+            <label for="lastName" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="lastName" required />
+          </div>
+        </div>
+        <!-- Tercera fila -->
+        <div class="row">
+          <div class="col-12 col-md-6 mb-2">
+            <label for="city" class="form-label">City</label>
+            <input type="text" class="form-control" id="city" required />
+          </div>
+          <div class="col-6 col-md-3">
+            <label for="state" class="form-label">State</label>
+            <select class="form-select" id="state" required>
+              <option value="" disabled selected>Pick a state</option>
+              <option value="CA">CA</option>
+              <option value="NY">NY</option>
+              <option value="TX">TX</option>
+            </select>
+          </div>
+          <div class="col-6 col-md-3">
+            <label for="postalCode" class="form-label">Postal Code</label>
+            <input type="text" class="form-control" id="postalCode" required />
+          </div>
+        </div>
+        <!-- Tarjetas y Mensaje -->
+        <div class="row mt-2">
+          <div class="col-12 col-lg-3 col-md-6 mb-2">
+            <label class="form-label">We accept</label>
+            <div class="card-body text-bg-secondary rounded d-flex align-items-center justify-content-between p-2">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="card" id="mastercard" required />
+                <label class="form-check-label" for="mastercard">
+                  <i class="fa-brands fa-cc-mastercard"></i>
+                </label>
               </div>
-              <div class="col-6 col-md-3">
-                <label for="cvc" class="form-label">CVC #</label>
-                <input type="text" class="form-control" id="cvc" placeholder="000" maxlength="3" required />
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="card" id="visa" required />
+                <label class="form-check-label" for="visa">
+                  <i class="fa-brands fa-cc-visa"></i>
+                </label>
               </div>
-              <div class="col-6 col-md-4">
-                <label for="amount" class="form-label">Amount <strong>$</strong></label>
-                <input type="number" class="form-control" id="amount" placeholder="Amount" required />
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="card" id="diner" required />
+                <label class="form-check-label" for="diner">
+                  <i class="fa-brands fa-cc-diners-club"></i>
+                </label>
               </div>
-            </div>
-
-            <!-- Segunda fila -->
-            <div class="row mb-2">
-              <div class="col-6">
-                <label for="firstName" class="form-label">First Name</label>
-                <input type="text" class="form-control" id="firstName" required />
-              </div>
-              <div class="col-6">
-                <label for="lastName" class="form-label">Last Name</label>
-                <input type="text" class="form-control" id="lastName" required />
-              </div>
-            </div>
-
-            <!-- Tercera fila -->
-            <div class="row">
-              <div class="col-12 col-md-6 mb-2">
-                <label for="city" class="form-label">City</label>
-                <input type="text" class="form-control" id="city" required />
-              </div>
-              <div class="col-6 col-md-3">
-                <label for="state" class="form-label">State</label>
-                <select class="form-select" id="state" required>
-                  <option value="" disabled selected>Pick a state</option>
-                  <option value="CA">CA</option>
-                  <option value="NY">NY</option>
-                  <option value="TX">TX</option>
-                </select>
-              </div>
-              <div class="col-6 col-md-3">
-                <label for="postalCode" class="form-label">Postal Code</label>
-                <input type="text" class="form-control" id="postalCode" required />
-              </div>
-            </div>
-
-            <!-- Tarjetas y Mensaje -->
-            <div class="row mt-2">
-              <div class="col-12 col-lg-3 col-md-6 mb-2">
-                <label class="form-label">We accept</label>
-                <div class="card-body text-bg-secondary rounded d-flex align-items-center justify-content-between p-2">
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="card" id="mastercard" required>
-                    <label class="form-check-label" for="mastercard">
-                      <i class="fa-brands fa-cc-mastercard"></i>
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="card" id="visa" required>
-                    <label class="form-check-label" for="visa">
-                      <i class="fa-brands fa-cc-visa"></i>
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="card" id="diner" required>
-                    <label class="form-check-label" for="diner">
-                      <i class="fa-brands fa-cc-diners-club"></i>
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="card" id="apple" required>
-                    <label class="form-check-label" for="apple">
-                      <i class="fa-brands fa-cc-apple-pay"></i>
-                    </label>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-lg-3 d-none d-lg-block"></div>
-              <div class="col-12 col-md-6">
-                <label for="message" class="form-label">Message</label>
-                <textarea class="form-control w-100" rows="4" id="message"></textarea>
-                <p class="text-muted" style="font-size: 13px;">Add any notes here.</p>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="card" id="apple" required />
+                <label class="form-check-label" for="apple">
+                  <i class="fa-brands fa-cc-apple-pay"></i>
+                </label>
               </div>
             </div>
-            </div>
-
-            <!-- Footer -->
-            <div class="card-footer text-end">
-              <button type="reset" class="btn btn-secondary">Cancel</button>
-              <button type="submit" class="btn btn-primary">Send</button>
-            </div>
-          </form>
+          </div>
+          <div class="col-lg-3 d-none d-lg-block"></div>
+          <div class="col-12 col-md-6">
+            <label for="message" class="form-label">Message</label>
+            <textarea class="form-control w-100" rows="4" id="message"></textarea>
+            <p class="text-muted" style="font-size: 13px">
+              Add any notes here.
+            </p>
+          </div>
         </div>
       </div>
-    </div>
+      <!-- Footer -->
+      <div class="card-footer text-end">
+        <button type="reset" class="btn btn-secondary">Cancel</button>
+        <button type="submit" class="btn btn-primary">Send</button>
+      </div>
+    </form>
+  </div>
 
-    <!-- Bootstrap y JavaScript -->
-    <script>
-      (() => {
-        'use strict'
+  <!-- Bootstrap y JavaScript -->
+  <script>
+    (() => {
+      "use strict";
 
-        const form = document.querySelector('.needs-validation');
-        const alertDanger = document.querySelector('.alert-danger');
-        const cardNumber = document.getElementById('cardNumber');
-        const cvc = document.getElementById('cvc');
+      const form = document.querySelector(".needs-validation");
+      const alertDanger = document.querySelector(".alert-danger");
+      const cardNumber = document.getElementById("cardNumber");
+      const cvc = document.getElementById("cvc");
 
-        // Formato automático del número de tarjeta
-        cardNumber.addEventListener('input', (e) => {
-          let value = e.target.value.replace(/\D/g, '');
-          value = value.slice(0, 16);
-          let formatted = value.replace(/(\d{4})(?=\d)/g, '$1-');
-          e.target.value = formatted;
-        });
+      // Formato automático del número de tarjeta
+      cardNumber.addEventListener("input", (e) => {
+        let value = e.target.value.replace(/\D/g, "");
+        value = value.slice(0, 16);
+        let formatted = value.replace(/(\d{4})(?=\d)/g, "$1-");
+        e.target.value = formatted;
+      });
 
-        // Validación del CVC (solo números y máximo 3 dígitos)
-        cvc.addEventListener('input', (e) => {
-          e.target.value = e.target.value.replace(/\D/g, '').slice(0, 3);
-        });
+      // Validación del CVC (solo números y máximo 3 dígitos)
+      cvc.addEventListener("input", (e) => {
+        e.target.value = e.target.value.replace(/\D/g, "").slice(0, 3);
+      });
 
-        form.addEventListener('submit', event => {
-          let isValid = true;
+      form.addEventListener("submit", (event) => {
+        let isValid = true;
 
-          // Validar 16 dígitos en la tarjeta
-          const cardValue = cardNumber.value.replace(/\D/g, '');
-          if (cardValue.length !== 16) {
-            cardNumber.classList.add('is-invalid');
-            isValid = false;
-          } else {
-            cardNumber.classList.remove('is-invalid');
-          }
+        // Validar 16 dígitos en la tarjeta
+        const cardValue = cardNumber.value.replace(/\D/g, "");
+        if (cardValue.length !== 16) {
+          cardNumber.classList.add("is-invalid");
+          isValid = false;
+        } else {
+          cardNumber.classList.remove("is-invalid");
+        }
 
-          // Validación de select y radio
-          const stateSelect = document.getElementById('state');
-          if (!stateSelect.value) {
-            stateSelect.classList.add('is-invalid');
-            isValid = false;
-          } else {
-            stateSelect.classList.remove('is-invalid');
-          }
+        // Validación de select y radio
+        const stateSelect = document.getElementById("state");
+        if (!stateSelect.value) {
+          stateSelect.classList.add("is-invalid");
+          isValid = false;
+        } else {
+          stateSelect.classList.remove("is-invalid");
+        }
 
-          const radioChecked = Array.from(document.querySelectorAll('input[name="card"]')).some(radio => radio.checked);
-          if (!radioChecked) {
-            isValid = false;
-          }
+        const radioChecked = Array.from(
+          document.querySelectorAll('input[name="card"]')
+        ).some((radio) => radio.checked);
+        if (!radioChecked) {
+          isValid = false;
+        }
 
-          if (!form.checkValidity() || !isValid) {
-            event.preventDefault();
-            alertDanger.classList.remove('d-none');
-          } else {
-            alertDanger.classList.add('d-none');
-          }
+        if (!form.checkValidity() || !isValid) {
+          event.preventDefault();
+          alertDanger.classList.remove("d-none");
+        } else {
+          alertDanger.classList.add("d-none");
+        }
 
-          form.classList.add('was-validated');
-        });
-      })();
-    </script>
-  </body>
+        form.classList.add("was-validated");
+      });
+    })();
+  </script>
+</body>
+
 </html>
